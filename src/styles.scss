@@ -8,17 +8,8 @@
 // Be sure that you only ever include this mixin once!
 @include mat-core();
 
-// Define the palettes for your theme using the Material Design palettes available in palette.scss
-// (imported above). For each palette, you can optionally specify a default, lighter, and darker
-// hue. Available color palettes: https://material.io/design/color/
-$angular-material-themes-example-primary: mat-palette($mat-indigo);
-$angular-material-themes-example-accent: mat-palette($mat-pink, 400, 200, 600);
-
-// The warn palette is optional (defaults to red).
-$angular-material-themes-example-warn: mat-palette($mat-red);
-
-// Create the theme object (a Sass map containing all of the palettes).
-$angular-material-themes-example-theme: mat-light-theme($angular-material-themes-example-primary, $angular-material-themes-example-accent, $angular-material-themes-example-warn);
+@import './themes/angular-material-themes-example-theme';
+@import './themes/angular-material-themes-example-dark-theme';
 
 .light-theme {
   // Include theme styles for core and each component used in your app.
@@ -26,11 +17,6 @@ $angular-material-themes-example-theme: mat-light-theme($angular-material-themes
   // that you are using.
   @include angular-material-theme($angular-material-themes-example-theme);
 }
-
-$angular-material-themes-example-dark-primary: mat-palette($mat-purple);
-$angular-material-themes-example-dark-accent: mat-palette($mat-pink);
-$angular-material-themes-example-dark-warn: mat-palette($mat-red);
-$angular-material-themes-example-dark-theme: mat-dark-theme($angular-material-themes-example-dark-primary, $angular-material-themes-example-dark-accent, $angular-material-themes-example-dark-warn);
 
 .dark-theme {
   @include angular-material-theme($angular-material-themes-example-dark-theme);

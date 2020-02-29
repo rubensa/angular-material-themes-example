@@ -1,0 +1,4 @@
+$angular-material-themes-example-dark-primary: mat-palette($mat-purple);
+$angular-material-themes-example-dark-accent: mat-palette($mat-pink);
+$angular-material-themes-example-dark-warn: mat-palette($mat-red);
+$angular-material-themes-example-dark-theme: mat-dark-theme($angular-material-themes-example-dark-primary, $angular-material-themes-example-dark-accent, $angular-material-themes-example-dark-warn);
