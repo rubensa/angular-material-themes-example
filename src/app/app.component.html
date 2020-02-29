@@ -1,4 +1,4 @@
-<div>
+<div [class]="theme">
   <h1>
     Welcome to {{title}}
   </h1>
@@ -13,10 +13,10 @@
   <br>
   <mat-card>
     <mat-form-field>
-      <mat-label>Favorite Animal</mat-label>
-      <mat-select>
-        <mat-option value="cat">Cat</mat-option>
-        <mat-option value="cats">Cats</mat-option>
+      <mat-label>Theme</mat-label>
+      <mat-select [(ngModel)]="theme">
+        <mat-option value="light-theme">Light</mat-option>
+        <mat-option value="dark-theme">Dark</mat-option>
       </mat-select>
     </mat-form-field>
   </mat-card>

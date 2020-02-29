@@ -7,4 +7,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angular-material-themes-example';
+  theme = 'light-theme';
 }
