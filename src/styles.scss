@@ -25,6 +25,13 @@ $angular-material-themes-example-theme: mat-light-theme($angular-material-themes
 // that you are using.
 @include angular-material-theme($angular-material-themes-example-theme);
 
+$angular-material-themes-example-dark-primary: mat-palette($mat-purple);
+$angular-material-themes-example-dark-accent: mat-palette($mat-pink);
+$angular-material-themes-example-dark-warn: mat-palette($mat-red);
+$angular-material-themes-example-dark-theme: mat-dark-theme($angular-material-themes-example-dark-primary, $angular-material-themes-example-dark-accent, $angular-material-themes-example-dark-warn);
+
+@include angular-material-theme($angular-material-themes-example-dark-theme);
+
 /* You can add global styles to this file, and also import other style files */
 
 html, body { height: 100%; }
