@@ -1,3 +1,16 @@
+// instead of creating a theme with mat-light-theme like a sane person, we will create our own theme-creating function that lets us apply our own foreground and background palettes.
+// Creates a container object for a light theme to be given to individual component theme mixins.
+@function mat-custom-light-theme($primary, $accent, $warn: mat-palette($mat-red), $foreground: $mat-light-theme-foreground, $background: $mat-light-theme-background) {
+  @return (
+    primary: $primary,
+    accent: $accent,
+    warn: $warn,
+    is-dark: false,
+    foreground: $foreground,
+    background: $background,
+  );
+}
+
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
@@ -7,5 +20,43 @@ $angular-material-themes-example-accent: mat-palette($mat-pink, 400, 200, 600);
 // The warn palette is optional (defaults to red).
 $angular-material-themes-example-warn: mat-palette($mat-red);
 
+// Foreground palette for light themes.
+$angular-material-themes-example-theme-foreground: (
+  base:              black,
+  divider:           $dark-dividers,
+  dividers:          $dark-dividers,
+  disabled:          $dark-disabled-text,
+  disabled-button:   rgba(black, 0.26),
+  disabled-text:     $dark-disabled-text,
+  elevation:         black,
+  hint-text:         $dark-disabled-text,
+  secondary-text:    $dark-secondary-text,
+  icon:              rgba(black, 0.54),
+  icons:             rgba(black, 0.54),
+  text:              rgba(black, 0.87),
+  slider-min:        rgba(black, 0.87),
+  slider-off:        rgba(black, 0.26),
+  slider-off-active: rgba(black, 0.38),
+);
+
+// Background palette for light themes.
+$angular-material-themes-example-theme-background: (
+  status-bar: black,
+  app-bar:    map_get($mat-grey, 300),
+  background: #303030,
+  hover:      rgba(white, 0.04), // TODO(kara): check style with Material Design UX
+  card:       map_get($mat-grey, 200),
+  dialog:     map_get($mat-grey, 200),
+  disabled-button: rgba(white, 0.12),
+  raised-button: map-get($mat-grey, 200),
+  focused-button: $light-focused,
+  selected-button: map_get($mat-grey, 200),
+  selected-disabled-button: map_get($mat-grey, 200),
+  disabled-button-toggle: black,
+  unselected-chip: map_get($mat-grey, 100),
+  disabled-list-option: black,
+  tooltip: map_get($mat-grey, 100),
+);
+
 // Create the theme object (a Sass map containing all of the palettes).
-$angular-material-themes-example-theme: mat-light-theme($angular-material-themes-example-primary, $angular-material-themes-example-accent, $angular-material-themes-example-warn);
+$angular-material-themes-example-theme: mat-custom-light-theme($angular-material-themes-example-primary, $angular-material-themes-example-accent, $angular-material-themes-example-warn, $angular-material-themes-example-theme-foreground, $angular-material-themes-example-theme-background);

@@ -1,4 +1,56 @@
+// instead of creating a theme with mat-light-theme like a sane person, we will create our own theme-creating function that lets us apply our own foreground and background palettes.
+// Creates a container object for a dark theme to be given to individual component theme mixins.
+@function mat-custom-dark-theme($primary, $accent, $warn: mat-palette($mat-red), $foreground: $mat-dark-theme-foreground, $background: $mat-dark-theme-background) {
+  @return (
+    primary: $primary,
+    accent: $accent,
+    warn: $warn,
+    is-dark: true,
+    foreground: $foreground,
+    background: $background,
+  );
+}
+
 $angular-material-themes-example-dark-primary: mat-palette($mat-purple);
 $angular-material-themes-example-dark-accent: mat-palette($mat-pink);
 $angular-material-themes-example-dark-warn: mat-palette($mat-red);
-$angular-material-themes-example-dark-theme: mat-dark-theme($angular-material-themes-example-dark-primary, $angular-material-themes-example-dark-accent, $angular-material-themes-example-dark-warn);
+
+// Foreground palette for dark themes.
+$angular-material-themes-example-dark-theme-foreground: (
+  base:              white,
+  divider:           $light-dividers,
+  dividers:          $light-dividers,
+  disabled:          $light-disabled-text,
+  disabled-button:   rgba(white, 0.3),
+  disabled-text:     $light-disabled-text,
+  elevation:         black,
+  hint-text:         $light-disabled-text,
+  secondary-text:    $light-secondary-text,
+  icon:              white,
+  icons:             white,
+  text:              white,
+  slider-min:        white,
+  slider-off:        rgba(white, 0.3),
+  slider-off-active: rgba(white, 0.3),
+);
+
+// Background palette for dark themes.
+$angular-material-themes-example-dark-theme-background: (
+  status-bar: black,
+  app-bar:    map_get($mat-grey, 700),
+  background: #303030,
+  hover:      rgba(white, 0.04), // TODO(kara): check style with Material Design UX
+  card:       map_get($mat-grey, 600),
+  dialog:     map_get($mat-grey, 600),
+  disabled-button: rgba(white, 0.12),
+  raised-button: map-get($mat-grey, 600),
+  focused-button: $light-focused,
+  selected-button: map_get($mat-grey, 700),
+  selected-disabled-button: map_get($mat-grey, 600),
+  disabled-button-toggle: black,
+  unselected-chip: map_get($mat-grey, 500),
+  disabled-list-option: black,
+  tooltip: map_get($mat-grey, 500),
+);
+
+$angular-material-themes-example-dark-theme: mat-custom-dark-theme($angular-material-themes-example-dark-primary, $angular-material-themes-example-dark-accent, $angular-material-themes-example-dark-warn, $angular-material-themes-example-dark-theme-foreground, $angular-material-themes-example-dark-theme-background);
