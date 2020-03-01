@@ -1,3 +1,11 @@
+// for npm npm-font-open-sans package (to load local files)
+$FontPathOpenSans: "~npm-font-open-sans/fonts";
+@import '~npm-font-open-sans/open-sans';
+
+// for npm material-icons package (to load local files)
+$material-icons-font-path: '~material-icons/iconfont/';
+@import '~material-icons/iconfont/material-icons.scss';
+
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
 @import '~@angular/material/theming';
