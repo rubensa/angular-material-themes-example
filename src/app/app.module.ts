@@ -8,11 +8,13 @@ import { MatSelectModule } from '@angular/material/select';
 
 import { AppComponent } from './app.component';
 import { ParentComponent } from './example/parent/parent.component';
+import { ChildComponent } from './example/child/child.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ParentComponent
+    ParentComponent,
+    ChildComponent
   ],
   imports: [
     BrowserModule,
