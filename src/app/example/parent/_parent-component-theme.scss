@@ -1,0 +1,20 @@
+@import '~@angular/material/theming';
+
+@mixin amte-parent-theme($theme) {
+  // Extract the color variables
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $foregorund: map-get($theme, foregorund);
+  $background: map-get($theme, background);
+
+  // Component selector
+  amte-parent {
+    >div {
+      background-color: mat-color($primary, lighter);
+      >h1 {
+        color: mat-color($primary);
+      }
+    }
+  }
+}
