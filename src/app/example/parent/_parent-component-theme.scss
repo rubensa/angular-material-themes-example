@@ -1,5 +1,8 @@
 @import '~@angular/material/theming';
 
+// Create a config with the default typography levels.
+$config: mat-typography-config();
+
 @mixin amte-parent-theme($theme) {
   // Extract the color variables
   $primary: map-get($theme, primary);
@@ -15,6 +18,16 @@
       >h1 {
         color: mat-color($primary);
       }
+    }
+    // Custom header that uses only the Material `font-size` and `font-family`
+    .amte-parent-heading {
+      font-size: mat-font-size($config, display-3);
+      font-family: mat-font-family($config);
+    }
+
+    // Custom heading that uses all of the typography styles from the `display-3` level.
+    .amte-parent-heading-alt {
+      @include mat-typography-level-to-styles($config, display-3);
     }
   }
 }
