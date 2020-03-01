@@ -3,10 +3,20 @@
 @import '~@angular/material/theming';
 // Plus imports for other components in your app.
 
+// Define a custom typography config that overrides the font-family as well as the
+// `headlines` and `body-1` levels.
+// mat-typography-level function requires a font-size, line-height, and font-weight
+$custom-typography: mat-typography-config(
+  $font-family: 'Open Sans, monospace',
+  $headline: mat-typography-level(22px, 38px, 700),
+  $body-1: mat-typography-level(16px, 24px, 500)
+);
+
 // Include the common styles for Angular Material. We include this here so that you only
 // have to load a single css file for Angular Material in your app.
 // Be sure that you only ever include this mixin once!
-@include mat-core();
+// Override the typography in the core CSS.
+@include mat-core($custom-typography);
 
 @import './themes/angular-material-themes-example-theme';
 @import './themes/angular-material-themes-example-dark-theme';
