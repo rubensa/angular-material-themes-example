@@ -42,7 +42,7 @@
     "/bin/bash",
     "-i",
     "-c",
-    "export NODE_VERSION=lts/erbium; nvm install ${NODE_VERSION};"
+    "export NODE_VERSION=lts/erbium; nvm install ${NODE_VERSION}; npm completion >> ~/.bashrc; npx --shell-auto-fallback bash >> ~/.bashrc;"
   ],
   // Indicates the type of shell VS Code should use to "probe" for user environment variables to use by default 
   // while debugging or running a task: none (default), interactiveShell, loginShell, or loginInteractiveShell.
