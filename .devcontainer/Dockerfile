@@ -1,13 +1,8 @@
 FROM rubensa/ubuntu-tini-dev-chrome
 
-# Keep container running (for use in VSCode)
-CMD [ "tail", "-f", "/dev/null" ]
+# Create vscode extensions cache directory so it is owned by the user
+RUN mkdir -p /home/${USER_NAME}/.vscode-server/extensionsCache
 
-# Allow vscode-server cache
-RUN mkdir -p /home/${USER_NAME}/.vscode-server
+# Create node cache directory so it is owned by the user
+RUN mkdir -p /home/${USER_NAME}/.npm/_cacache
 
-# Allow npm cache
-RUN mkdir -p /home/${USER_NAME}/.npm
-
-# Configure local node modules
-RUN printf "\nexport PATH=\"\$PWD/node_modules/.bin:\$PATH\"\n" >> /home/${USER_NAME}/.bashrc
